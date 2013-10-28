@@ -1,7 +1,19 @@
-(defproject cascalog-class "1.0.0-SNAPSHOT"
-  :description "Getting started project for Clojure/West's Cascalog Course."
-  :dependencies [[org.clojure/clojure "1.3.0"]
-                 [cascalog "1.8.6"]]
-  :dev-dependencies [[org.apache.hadoop/hadoop-core "0.20.2-dev"]
-                     [midje-cascalog "0.4.0"]
-                     [lein-midje "1.0.8"]])
+(defproject cascalog-wordcount "1.0.0-SNAPSHOT"
+  :description "Wordcount: Cascalog translation for hadoop's rosetta stone."
+  :dependencies [
+    [org.clojure/clojure "1.5.1"]
+    [cascalog/cascalog-core "2.0.0-SNAPSHOT"]
+  ]
+  :plugins [[lein-midje "3.0.0"]]
+  :profiles {
+    :provided {
+      :dependencies [
+        [org.apache.hadoop/hadoop-core "1.0.3"]
+        [cascalog/midje-cascalog "2.0.0-SNAPSHOT"]
+      ]
+    }
+  }
+  :aot [wordcount.core]
+  :uberjar-name "wordcount.jar"
+  :min-lein-version "2.0.0"
+)

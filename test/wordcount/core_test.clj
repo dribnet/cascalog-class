@@ -1,5 +1,5 @@
-(ns cascalog-class.core-test
-  (:use cascalog-class.core
+(ns wordcount.core-test
+  (:use wordcount.core
         [midje sweet cascalog]))
 
 (let [line-src [["a line of text line many"]
