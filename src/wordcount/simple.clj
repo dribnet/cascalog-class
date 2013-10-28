@@ -10,16 +10,7 @@
   "Accepts a sentence 1-tuple, splits that sentence on whitespace, and
    emits a single 1-tuple for each word."
   [^String sentence]
-  (let [
-      frags (string/split (string/lower-case sentence) #"\s+")
-      words (map #(second (
-        re-find #"(?x)          # allow embedded whitespace and comments
-                  [^a-z0-9]*    # skip until first alphanumeric
-                  ([a-z0-9']+)  # grab wordy chars
-                 " %)) frags)
-    ]
-    (remove nil? words)
-  )
+  (string/split sentence #"\s+")
 )
 
 (defn wordcount-query
@@ -33,7 +24,7 @@
   )
 )
 
-; rm -Rf output/simple && lein run -m wordcount.simple.run sample/words.txt output/simple && cat output/simple/part-00000
+; rm -Rf output/counter && lein run -m wordcount.counter.run sample/words.txt output/counter && cat output/counter/part-00000
 (defmain run [in out]
   (?- (hfs-textline out)
       (wordcount-query (hfs-textline in))
