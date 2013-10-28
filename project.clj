@@ -13,7 +13,7 @@
       ]
     }
   }
-  :aot [wordcount.core]
+  :aot [wordcount.simple wordcount.debug]
   :uberjar-name "wordcount.jar"
   :min-lein-version "2.0.0"
 )

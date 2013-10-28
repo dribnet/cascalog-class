@@ -1,6 +1,8 @@
-(ns wordcount.core-test
-  (:use wordcount.core
-        [midje sweet cascalog]))
+(ns wordcount.simple-test
+  (:use wordcount.simple
+        [midje sweet cascalog]
+  )
+)
 
 (let [line-src [["a line of text line many"]
                 ["words line count line text"]]]
@@ -13,4 +15,5 @@
                                              ["many" 1]
                                              ["of" 1]
                                              ["text" 2]
-                                             ["words" 1]])))
+                                             ["words" 1]]))
+)
